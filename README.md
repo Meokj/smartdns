@@ -7,3 +7,9 @@ bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/install_sm
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/uninstall_smartdns.sh)
 ```
+---
+
+* 修改配置
+```bash
+nano /etc/smartdns/smartdns.conf
+```
