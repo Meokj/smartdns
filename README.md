@@ -7,6 +7,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/install_sm
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/uninstall_smartdns.sh)
 ```
+
+* 测速对比
+```bash
+bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/test_smartdns.sh)
+```
 ---
 
 * 修改配置
