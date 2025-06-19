@@ -38,6 +38,9 @@ prefetch-domain yes
 server 8.8.8.8
 server 1.1.1.1
 server 223.5.5.5
+
+log-level info # 关闭日志级别设置为none，并注释下一行   
+log-file /var/log/smartdns.log
 EOF
 
 echo "[+] 重启并开机自启 SmartDNS..."
