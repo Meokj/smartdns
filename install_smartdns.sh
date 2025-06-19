@@ -71,7 +71,8 @@ speed-check-interval 10
 
 # 测速线程数量
 # 同时开启3个线程并发测速，适合2核CPU，平衡速度和资源占用
-speed-check-thread 3
+# 同时开启1个线程并发测速，适合1核CPU，平衡速度和资源占用
+speed-check-thread 1
 
 # DNS请求超时时间（秒）
 # 超过4秒未响应则视为失败
