@@ -33,23 +33,13 @@ echo "[+] 写入配置 /etc/smartdns/smartdns.conf ..."
 cat > /etc/smartdns/smartdns.conf <<EOF
 bind 127.0.0.1:5353
 cache-size 4096
-
-# 开启双栈模式
 dual-stack-mode yes
-
-# 预取域名缓存
 prefetch-domain yes
-
 server 8.8.8.8
 server 1.1.1.1
 server 223.5.5.5
-
-# 设置日志级别为无日志
 log-level none
-
-# 如果想开启日志，取消下面注释
-# log-level info
-# log-file /var/log/smartdns.log
+#log-file /var/log/smartdns.log
 EOF
 
 echo "[+] 重启并开机自启 SmartDNS..."
