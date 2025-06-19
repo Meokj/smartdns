@@ -35,9 +35,19 @@ bind 127.0.0.1:5353
 cache-size 4096
 dual-stack-mode yes
 prefetch-domain yes
+speed-check-mode ping-tcp:443
+timeout 4
+
+# 国内 DNS
+server 223.5.5.5
+server 119.29.29.29
+server 180.76.76.76
+
+# 境外 DNS
 server 8.8.8.8
 server 1.1.1.1
-server 223.5.5.5
+server-tls https://dns.google/dns-query
+server-tls https://cloudflare-dns.com/dns-query
 EOF
 
 echo "[+] 重启并开机自启 SmartDNS..."
