@@ -47,10 +47,13 @@ if ! curl --head --silent --fail "$URL" > /dev/null; then
   echo "❌ 文件不存在：$URL"
   exit 1
 fi
-wget --no-check-certificate -O "/tmp/$FILE" "$URL"
+wget --no-check-certificate -q -O "/tmp/$FILE" "$URL"
 
 echo "[+] 安装 SmartDNS..."
-dpkg -i "/tmp/$FILE" || apt install -f -y
+dpkg -i "/tmp/$FILE" > /dev/null 2>&1 || {
+  echo "⚠️ dpkg 安装失败，尝试修复依赖..."
+  apt install -f -y > /dev/null 2>&1
+}
 
 echo "[+] 写入配置 /etc/smartdns/smartdns.conf ..."
 cat > /etc/smartdns/smartdns.conf <<EOF
@@ -156,7 +159,7 @@ nameserver 8.8.4.4
 EOF
 sudo chmod 644 /etc/resolv.conf
 
-  echo "✅ 因为 53 端口空闲，已设置 smartdns 为系统默认 DNS，当前 /etc/resolv.conf 内容如下："
+  echo "✅ 53 端口空闲，已设置 smartdns 为系统默认 DNS 优先使用，当前 /etc/resolv.conf 内容如下："
   cat /etc/resolv.conf
 fi
 
