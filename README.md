@@ -17,3 +17,11 @@ bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/uninstall_
 ```bash
 nano /etc/smartdns/smartdns.conf
 ```
+* 停止
+```bash
+sudo systemctl stop smartdns
+```
+* 重启
+```bash
+sudo systemctl restart smartdns
+```
