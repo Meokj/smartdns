@@ -129,8 +129,12 @@ echo "[+] 验证监听端口 127.0.0.1:$PORT ..."
 ss -tuln | grep -E "127\.0\.0\.1:$PORT\b" && echo "✅ 成功监听" || echo "⚠️ 没有监听，请检查"
 
 if [ "$PORT" = "53" ]; then
-  echo "🛠 关闭 systemd-resolved 服务..."
-  sudo systemctl disable --now systemd-resolved
+  if systemctl list-unit-files | grep -q '^systemd-resolved\.service'; then
+    echo "🛠 关闭 systemd-resolved 服务..."
+    sudo systemctl disable --now systemd-resolved
+  else
+    echo "ℹ️ systemd-resolved 服务不存在，跳过关闭操作。"
+  fi
 
   echo "🔄 备份 /etc/resolv.conf（如果存在）..."
   if [ -f /etc/resolv.conf ]; then
