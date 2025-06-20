@@ -1,3 +1,6 @@
+53端口空闲，则设置smartdns为默认DNS，否则使用5353端口
+
+---
 * 安装
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/Meokj/smartdns/main/install_smartdns.sh)
